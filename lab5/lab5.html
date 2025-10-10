@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navbar példa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">LOGO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+            aria-controls="menu" aria-expanded="false" aria-label="Navigáció váltása">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Főoldal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Kapcsolat</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://picsum.photos/600/400?random=1" class="card-img-top" alt="Illusztráció 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Cím 1</h5>
+          <p class="card-text">Rövid leírás az első kártyához, maximum egy-két sorban.</p>
+          <div class="mt-auto">
+            <a href="#" class="btn btn-primary" role="button" aria-label="Megnyitás: Cím 1">Megnyitás</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://picsum.photos/600/400?random=2" class="card-img-top" alt="Illusztráció 2">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Cím 2</h5>
+          <p class="card-text">Rövid leírás a második kártyához, figyelmesen tömören megfogalmazva.</p>
+          <div class="mt-auto">
+            <a href="#" class="btn btn-primary" role="button" aria-label="Megnyitás: Cím 2">Megnyitás</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://picsum.photos/600/400?random=3" class="card-img-top" alt="Illusztráció 3">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Cím 3</h5>
+          <p class="card-text">Rövid leírás a harmadik kártyához — egy mondat elég.</p>
+          <div class="mt-auto">
+            <a href="#" class="btn btn-primary" role="button" aria-label="Megnyitás: Cím 3">Megnyitás</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div id="alertBox" aria-live="polite" aria-atomic="true"></div>
+
+    <button id="showAlert" class="btn btn-success mt-3">Alert megjelenítése (jQuery)</button>
+    <button id="showAlertNative" class="btn btn-outline-success mt-3 ms-2">Alert megjelenítése (natív JS)</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $('#showAlert').on('click', function() {
+      const id = 'alert-' + Date.now();
+      const $alert = $(`
+        <div id="${id}" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Siker!</strong> A művelet sikeresen megtörtént.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Bezárás"></button>
+        </div>
+      `);
+      $('#alertBox').prepend($alert);
+    });
+
+    document.getElementById('showAlertNative').addEventListener('click', function() {
+      const id = 'alert-' + Date.now();
+      const alertBox = document.getElementById('alertBox');
+      const wrapper = document.createElement('div');
+      wrapper.id = id;
+      wrapper.className = 'alert alert-info alert-dismissible fade show';
+      wrapper.setAttribute('role', 'alert');
+      wrapper.innerHTML = `
+        <strong>Info:</strong> Ez egy natív JS-sel létrehozott alert.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Bezárás"></button>
+      `;
+      alertBox.prepend(wrapper);
+    });
+  </script>
+
+  <div class="container">
+    <button id="openModal" data-bs-toggle="modal" data-bs-target="#infoModal" class="btn btn-primary">
+      Részletek
+    </button>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoModalLabel">Cím</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+          </div>
+          <div class="modal-body">
+            <p id="infoModalBody">Modal tartalma</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+            <button type="button" id="actionBtn" class="btn btn-primary">Akció</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $('#openModal').on('click', function() {
+      $('#infoModalLabel').text('Frissített cím');
+      $('#infoModalBody').html('<strong>Frissített tartalom:</strong> itt van néhány részlet a műveletről.');
+    });
+
+    $('#infoModal').on('shown.bs.modal', function () {
+      $('#actionBtn').trigger('focus');
+    });
+
+    $('#actionBtn').on('click', function() {
+      $('#infoModalBody').append('<div class="mt-2 text-success">Akció sikeres.</div>');
+      const modalEl = document.getElementById('infoModal');
+      const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+      setTimeout(() => modalInstance.hide(), 800);
+    });
+  </script>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="contactForm" class="p-4 border bg-white rounded" novalidate>
+          <h4 class="mb-3">Kapcsolat</h4>
+
+          <label for="name" class="form-label">Név</label>
+          <input id="name" class="form-control mb-2" placeholder="Név" required>
+
+          <label for="email" class="form-label">Email</label>
+          <input id="email" type="email" class="form-control mb-2" placeholder="Email" required>
+
+          <label for="msg" class="form-label">Üzenet</label>
+          <textarea id="msg" class="form-control mb-3" rows="4" placeholder="Üzenet"></textarea>
+
+          <div class="d-flex align-items-center">
+            <button type="submit" class="btn btn-success">Küldés</button>
+            <div id="thanks" class="ms-3 text-success" aria-live="polite"></div>
+          </div>
+        </form>
+
+        <div id="formErrors" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    $('#contactForm').on('submit', function(e) {
+      e.preventDefault();
+
+      $('#thanks').text('');
+      $('#formErrors').html('');
+
+      const nev = $('#name').val().trim();
+      const email = $('#email').val().trim();
+      const msg = $('#msg').val().trim();
+
+      const errors = [];
+
+      if (!nev) errors.push('Kérlek add meg a nevedet.');
+      if (!email) {
+        errors.push('Kérlek add meg az e-mail címedet.');
+      } else if (!isValidEmail(email)) {
+        errors.push('Kérlek érvényes e-mail címet adj meg.');
+      }
+
+      if (errors.length) {
+        const errHtml = `
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+              ${errors.map(err => `<li>${err}</li>`).join('')}
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Bezárás"></button>
+          </div>
+        `;
+        $('#formErrors').html(errHtml);
+        return;
+      }
+
+      $('#thanks').text(`Köszönjük, ${nev}!`);
+
+      $('#contactForm')[0].reset();
+
+      setTimeout(() => { $('#thanks').fadeOut(400, function(){ $(this).text('').show(); }); }, 5000);
+    });
+  </script>
+
+  <button id="btnText" class="btn btn-sm btn-primary">Szöveg változtatása</button>
+<p id="para">Eredeti bekezdés szövege.</p>
+
+<script>
+  $('#btnText').on('click', function() {
+    $('#para').text('Új szöveg');
+  });
+</script>
+
+<style>
+  .highlight { background: yellow; }
+</style>
+
+<button id="btnToggle" class="btn btn-sm btn-secondary">Toggle highlight</button>
+<div id="box" class="p-2 mt-2">Ez a doboz kapja a .highlight osztályt.</div>
+
+<script>
+  $('#btnToggle').on('click', function() {
+    $('#box').toggleClass('highlight');
+  });
+</script>
+
+<button id="btnFetch" class="btn btn-sm btn-success">Lekérés</button>
+<pre id="result" class="mt-2 p-2 bg-light border"></pre>
+
+<script>
+  $('#btnFetch').on('click', function() {
+    $('#result').text('Lekérés folyamatban...');
+    $.get('https://httpbin.org/get')
+      .done(function(data) {
+        $('#result').text(JSON.stringify(data, null, 2));
+      })
+      .fail(function(xhr, status, err) {
+        $('#result').text('Hiba: ' + status + (err ? ' - ' + err : ''));
+      });
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
