@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Csipkey Tamás-István – Portfólió / CV</title>
+  <meta name="color-scheme" content="dark">
+  <style>
+    :root{
+  --content-max:880px;
+  --side-padding:24px; 
+  --bg:#0b0f14;
+  --card:#11161d;
+  --border:#1f2937;
+  --text:#e6e9ef;
+  --muted:#9aa4b2;
+  --accent:rgba(255,255,255,0.03);
+  --focus:#334155;
+  --radius-lg:16px;
+  --radius-md:12px;
+  --gap:18px;
+  --shadow-deep:0 10px 30px rgba(0,0,0,.35);
+  --shadow-soft:0 8px 24px rgba(0,0,0,.35);
+}
+
+html, body { height:100%; }
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  margin:0;
+  padding:24px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+}
+
+.profile-card,
+.cv-container { max-width:var(--content-max); margin-left:auto; margin-right:auto; }
+
+.profile-card{
+  display:flex;
+  gap:var(--gap);
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:16px;
+  box-shadow:var(--shadow-deep);
+  margin:0 auto;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+  min-width:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--border);
+  background:linear-gradient(135deg,#1b2228,#0f1418);
+  flex:0 0 96px;
+}
+
+.meta{ min-width:0; }
+.name{
+  margin:0;
+  font-size:28px;
+  font-weight:600;
+  color:var(--text);
+  word-break:break-word;
+}
+.role{
+  margin:4px 0 8px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.links{
+  font-size:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.links a{
+  color:var(--text);
+  text-decoration:none;
+  opacity:0.95;
+}
+.links a:hover{ text-decoration:underline; opacity:1; }
+.links a:focus{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.cv-container{
+  display:grid;
+  gap:16px;
+  padding:0 12px;
+  margin:24px auto;
+}
+
+.card.section-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:16px;
+  color:var(--text);
+  box-shadow:var(--shadow-soft);
+}
+
+.section-title{ margin:0 0 8px 0; font-size:18px; }
+.section-text{ margin:0 0 8px 0; color:var(--muted); font-size:14px; }
+
+.job{ margin-bottom:12px; }
+.job-title{ margin:0; font-size:15px; }
+.job-meta{ margin:4px 0 8px 0; color:var(--muted); font-size:13px; }
+.job-bullets{
+  margin:0 0 0 18px;
+  padding:0;
+  color:var(--text);
+  font-size:14px;
+  list-style-position:outside;
+}
+
+.chips{ margin-top:6px; }
+.chip{
+  display:inline-block;
+  margin:4px 6px 0 0;
+  padding:6px 10px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--accent);
+  font-size:12px;
+  color:var(--text);
+}
+
+.link{ color:var(--text); text-decoration:none; }
+.link:hover{ text-decoration:underline; }
+
+.profile-image{
+  display:block;
+  width:100%;
+  max-width:var(--content-max);
+  height:auto;
+  margin:16px auto;
+  border-radius:12px;
+  box-shadow:var(--shadow-soft);
+}
+
+@media (max-width:600px){
+  .profile-card{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:18px;
+  }
+  .avatar{
+    width:120px;
+    height:120px;
+    flex:0 0 auto;
+  }
+  .meta{ width:100%; }
+  .links{ justify-content:center; }
+  .name{ font-size:24px; }
+
+  .cv-container{ margin:12px auto; gap:12px; padding:0 8px; }
+  .section-title{ font-size:16px; }
+  .job-bullets{ font-size:13px; }
+}
+
+@media (max-width:360px){
+  .job-bullets{ margin-left:14px; font-size:13px; }
+}
+
+  </style>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentHost = location.host;
+    document.querySelectorAll('a[href]').forEach(a => {
+      try {
+        const url = new URL(a.href, location.href);
+        if (url.host && url.host !== currentHost) {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener');
+        }
+      } catch (e) {
+      }
+    });
+  });
+</script>
+
+</head>
+<body>
+  <main id="app">
+    <section class="profile-card">
+  <img class="avatar" src="D:\Egyetem\2\WebProgramozas\WebLabor\CV\jomagam.jpeg" alt="Profilkép" />
+  <div class="meta">
+    <h1 class="name">Csipkey Tamás-István</h1>
+    <p class="role">Egyetemista</p>
+    <div class="links">
+      <a href="mailto:csipkeytamasistvan@gmail.com">Email</a> ·
+      <a href="https://linkedin.com/in/te">LinkedIn</a> ·
+      <a href="https://github.com/CsipkeyTamasIstvan">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section class="card section-card" id="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">Bemutatkozás</h2>
+    <p class="section-text">
+      Informatika szakos hallgató, aki webes és mobilos projekteken dolgozik tanulási céllal. Szeretem a tiszta,
+      felhasználóbarát felületeket és a hatékony, karbantartható kódot.
+    </p>
+  </section>
+
+  <!-- Tapasztalat -->
+  <section class="card section-card" id="experience" aria-labelledby="experience-title">
+    <h2 id="experience-title" class="section-title">Tapasztalat</h2>
+
+    <div class="job">
+      <h3 class="job-title">Frontend fejlesztő gyakornok - WebLab Kft.</h3>
+      <p class="job-meta">2025.06 — 2025.09 · Budapest</p>
+      <ul class="job-bullets">
+        <li>Reszponzív felhasználói felületek építése HTML/CSS/JS használatával.</li>
+        <li>Komponensek újrafelhasználható CSS-el és moduláris JS-sel.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3 class="job-title">Backend gyakornok - DataFlow</h3>
+      <p class="job-meta">2024.07 — 2024.09 · Távoli</p>
+      <ul class="job-bullets">
+        <li>REST API-k fejlesztése Laravelben és adatbázis-migrációk kezelése.</li>
+        <li>Egység- és integrációs tesztek írása, hibakeresés és logelemzés.</li>
+        <li>CI/CD pipeline-k alapbeállítása GitHub Actions-szal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Oktatás -->
+  <section class="card section-card" id="education" aria-labelledby="education-title">
+    <h2 id="education-title" class="section-title">Oktatás</h2>
+    <p class="section-text"><strong>Informatika</strong>, UMFST - 2023 - folyamatban</p>
+    <p class="section-text">Kiemelt tantárgyak: Webfejlesztés, Adatbázisok, Algoritmusok, Mobilfejlesztés.</p>
+  </section>
+
+  <!-- Készségek -->
+  <section class="card section-card" id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="section-title">Készségek</h2>
+    <div class="chips" role="list">
+      <span class="chip" role="listitem">HTML</span>
+      <span class="chip" role="listitem">CSS</span>
+      <span class="chip" role="listitem">JavaScript</span>
+      <span class="chip" role="listitem">React</span>
+      <span class="chip" role="listitem">Python</span>
+      <span class="chip" role="listitem">Laravel</span>
+      <span class="chip" role="listitem">Kotlin</span>
+      <span class="chip" role="listitem">Git</span>
+    </div>
+  </section>
+
+  <!-- Kapcsolat -->
+  <section class="card section-card" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="section-title">Kapcsolat</h2>
+    <p class="section-text">Email: <a href="mailto:csipkeytamasistvan@gmail.com" class="link">csipkeytamasistvan@gmail.com</a></p>
+    <p class="section-text">LinkedIn: <a href="https://linkedin.com/in/te" class="link">linkedin.com/in/te</a></p>
+    <p class="section-text">GitHub: <a href="https://github.com/CsipkeyTamasIstvan" class="link">github.com/CsipkeyTamasIstvan</a></p>
+  </section>
+
+
+  </main>
+</body>
+</html>
